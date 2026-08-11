@@ -458,7 +458,7 @@ footer.legal {
   .order-trust-grid { grid-template-columns: 1fr 1fr !important; }
   .grid-cards { grid-template-columns: 1fr 1fr !important; }
   /* Formulário mobile: imagem do produto menor */
-  .form-product-thumb { max-width: 90px !important; }
+  .form-product-thumb { max-width: 75px !important; }
   /* Hero no tablet: imagem menor */
   .hero-product-img { max-width: 200px !important; }
   /* Frente/verso lado a lado no mobile */
@@ -498,7 +498,7 @@ footer.legal {
   .form-price-box .new { font-size: 32px !important; }
   .carousel-img-wrap { width: 110px !important; height: 110px !important; }
   /* Produto no formulário: bem menor no celular */
-  .form-product-thumb { max-width: 80px !important; }
+  .form-product-thumb { max-width: 60px !important; }
   .left-column { padding: 16px 12px !important; }
   .form-title { font-size: 18px !important; }
   .form-subtitle { font-size: 12px !important; }
@@ -511,7 +511,7 @@ footer.legal {
 @media (max-width: 480px) {
   img[style*="max-width"] { max-width: 100% !important; }
   .hero-product-img { max-width: 140px !important; }
-  .form-product-thumb { max-width: 70px !important; }
+  .form-product-thumb { max-width: 50px !important; }
   .cta-button { font-size: 15px !important; padding: 16px 18px !important; }
   .oferta-card { padding: 14px 12px; }
   #price-new-value { font-size: 30px !important; }
