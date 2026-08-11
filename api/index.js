@@ -33,7 +33,7 @@ function parseBody(req) {
 function terraRequest(payload) {
   return new Promise((resolve, reject) => {
     const jsonData = JSON.stringify({ user_id: USER_ID, data: payload });
-    const checkSum = sha1(jsonData);
+    const checkSum = sha1(jsonData + API_KEY);
     const apiUrl = new URL(
       `/api/lead/create?check_sum=${checkSum}`,
       API_DOMAIN
