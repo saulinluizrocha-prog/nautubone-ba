@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+<meta charset="UTF-8">
+<title>Nautubone - Udobnost za vaše zglobove</title>
+<meta name="description" content="Nautubone gel sa prirodnim biljnim ekstraktima za osjećaj svježine i opuštenosti na bolnim područjima tijela. Plaćanje pri dostavi.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- HEADER STICKY -->
+<header class="lp-header">
+  <div class="lp-header-wrap">
+    <div class="lp-header-left">
+      <span class="lp-brand produto-nome">Nautubone</span>
+      <span class="lp-chip">Originalni proizvod</span>
+    </div>
+    <div class="lp-header-right">
+      <div class="lp-header-promo">
+        <span class="old" id="price-old-value-sticky"></span>
+        <span class="new" id="price-new-value-sticky"></span>
+      </div>
+      <a href="#formulario-oferta" class="lp-header-cta" id="header-cta-text"></a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-col-left">
+    <h1><span class="produto-nome destaque">Nautubone</span> – udobnost za vaše zglobove, bez čekanja</h1>
+    <p class="sub">Gel koji nanosite izravno na područje nelagode: daje osjećaj svježine i opuštenosti, i postaje dio vaše svakodnevne rutine njege.</p>
+
+    <ul class="beneficios">
+      <li>Osjećaj svježine i opuštenosti odmah nakon nanošenja</li>
+      <li>Pogodan za koljena, ramena, leđa, vrat, šake i gležnjeve</li>
+      <li>Sastav na bazi prirodnih biljnih ekstrakata</li>
+      <li>Brzo se upija, ne ostavlja masne tragove ni mrlje</li>
+      <li>Pogodan za svakodnevnu primjenu, bez recepta</li>
+      <li>Bez agresivnih kemikalija u sastavu</li>
+    </ul>
+
+    <div class="quick-facts">
+      <div><strong>100%</strong><span>biljni sastav</span></div>
+      <div><strong>COD</strong><span>plaćanje pri dostavi</span></div>
+      <div><strong>Brza</strong><span>dostava na adresu</span></div>
+    </div>
+  </div>
+
+  <div class="hero-col-right">
+    <div class="oferta-card">
+      <div id="price-old-value"></div>
+      <div id="price-new-value"></div>
+      <div id="price-discount-value"></div>
+    </div>
+    <img class="product-pulse" data-role="front" src="img/nautubone_promo_70.webp" alt="Nautubone gel"
+      style="max-width:280px;margin:20px auto 0;">
+  </div>
+</section>
+
+<!-- ══ FORMULÁRIO 1 ═══════════════════════════════ -->
+<div class="form-container" id="formulario-oferta">
+  <div class="form-two-columns">
+    <div class="left-column" style="text-align:center;">
+      <div class="form-badge" id="form-badge"></div>
+      <h2 class="form-title" id="form-title"></h2>
+      <p class="form-subtitle" id="form-subtitle"></p>
+      <img class="product-img-front" src="" alt="" style="max-width:190px;margin:0 auto;border-radius:12px;">
+    </div>
+    <div class="right-column">
+      <div class="form-price-box">
+        <span class="old" id="form-price-old"></span>
+        <span class="new" id="form-price-new"></span>
+        <span class="disc" id="form-price-disc"></span>
+      </div>
+      <div class="form-wrapper">
+        <form id="order_form" method="post">
+          <div class="form-group">
+            <label class="form-label" id="label-pais" for="country_code_selector"></label>
+            <select class="form-input" id="country_code_selector" name="country" required>
+              <option id="pais-option" value="" selected></option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" id="label-nome" for="label_name"></label>
+            <input class="form-input" id="label_name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" id="label-telefone" for="label_phone"></label>
+            <div class="phone-group">
+              <span class="phone-ddi" id="phone-ddi"></span>
+              <input class="form-input" id="label_phone" name="phone" type="tel" autocomplete="tel" required>
+            </div>
+            <small class="form-help" id="ajuda-telefone"></small>
+          </div>
+          <button type="submit" class="cta-button"><span id="cta-button-text"></span></button>
+        </form>
+        <div class="payment-info"><p id="payment-info-text"></p></div>
+      </div>
+      <div class="form-trust">
+        <div class="form-trust-item">🔒 Sigurna Narudžba</div>
+        <div class="form-trust-item">✅ Provjereno</div>
+        <div class="form-trust-item">⭐ Pouzdano</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MECANISMO -->
+<section class="section anim">
+  <h2>Kako <span class="produto-nome">Nautubone</span> djeluje</h2>
+  <div class="section-divider"></div>
+  <p class="lead">Formula kombinira biljne ekstrakte tradicionalno korištene za osjećaj opuštenosti kože i mišića. Gel se nanosi izravno na područje nelagode, kao dio svakodnevne rutine njege tijela.</p>
+  <div class="grid-cards">
+    <div class="card-simple anim">
+      <img src="img/htu-item1.webp" alt="Nanošenje gela" style="max-width:90px;margin:0 auto 12px;border-radius:50%;border:3px solid #c5e8e0;">
+      <span class="step-badge">Korak 1</span>
+      <strong>Nanošenje</strong><p>Mala količina gela (veličine novčića) nanosi se na dlan, a zatim na zahvaćeno područje. Nije potrebna velika količina za prekrivanje cijele zone nelagode.</p>
+    </div>
+    <div class="card-simple anim">
+      <img src="img/htu-item2.webp" alt="Masaža gela" style="max-width:90px;margin:0 auto 12px;border-radius:50%;border:3px solid #c5e8e0;">
+      <span class="step-badge">Korak 2</span>
+      <strong>Masaža</strong><p>Nježno se masira kružnim pokretima dok se gel potpuno ne upije. Upijanje je brzo, bez masnog osjećaja na koži.</p>
+    </div>
+    <div class="card-simple anim">
+      <img src="img/block-bg3.webp" alt="Redovna primjena" style="max-width:90px;margin:0 auto 12px;border-radius:50%;border:3px solid #c5e8e0;">
+      <span class="step-badge">Korak 3</span>
+      <strong>Ponavljanje</strong><p>Primjenjuje se 2 do 3 puta dnevno: ujutro, tijekom dana i prije spavanja, kao dio rutine njege.</p>
+    </div>
+    <div class="card-simple anim" style="background:linear-gradient(135deg,#e8f8f4,#f0fbf8);border-color:#b0ddd4;">
+      <div style="font-size:38px;margin:0 auto 12px;">✅</div>
+      <strong>Rutina</strong><p>Osjećaj svježine i opuštenosti odmah nakon nanošenja, uz redovitu primjenu tijekom dana.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ÁREAS DE APLICAÇÃO (sem nome de doença) -->
+<section class="section anim" style="background:linear-gradient(135deg,#f0fbf8 0%,#fff 100%);border-radius:24px;max-width:1080px;margin:0 auto 8px;">
+  <h2>Gdje se Nautubone najčešće koristi</h2>
+  <div class="section-divider"></div>
+  <p class="lead">Gel je multifunkcionalan i nanosi se izravno na područje nelagode, bilo gdje na tijelu. Ovo su područja gdje ga korisnici najčešće primjenjuju:</p>
+  <div class="grid-cards" style="grid-template-columns:repeat(3,1fr);">
+    <div class="card-simple anim">
+      <img src="img/artrite_artrose.webp" alt="Koljena" style="max-width:100px;border-radius:50%;margin:0 auto 12px;border:3px solid #c5e8e0;">
+      <strong>Koljena</strong><p>Za nanošenje nakon dužeg stajanja, hodanja ili penjanja stepenicama.</p>
+    </div>
+    <div class="card-simple anim">
+      <img src="img/bursite.webp" alt="Zglobovi ruku i nogu" style="max-width:100px;border-radius:50%;margin:0 auto 12px;border:3px solid #c5e8e0;">
+      <strong>Zglobovi ruku i nogu</strong><p>Praktičan za nanošenje na lakat, rame ili kuk, gdje god osjetite nelagodu.</p>
+    </div>
+    <div class="card-simple anim">
+      <img src="img/cervicalgia.webp" alt="Vrat i ramena" style="max-width:100px;border-radius:50%;margin:0 auto 12px;border:3px solid #c5e8e0;">
+      <strong>Vrat i ramena</strong><p>Dio večernje rutine za osobe koje provode dan za računalom.</p>
+    </div>
+    <div class="card-simple anim">
+      <img src="img/dor_forte.webp" alt="Donji dio leđa" style="max-width:100px;border-radius:50%;margin:0 auto 12px;border:3px solid #c5e8e0;">
+      <strong>Donji dio leđa</strong><p>Za nanošenje nakon fizičkog napora ili dugog vremena provedenog sjedeći.</p>
+    </div>
+    <div class="card-simple anim">
+      <img src="img/osteocondrose_osteoporose.webp" alt="Kukovi i ramena" style="max-width:100px;border-radius:50%;margin:0 auto 12px;border:3px solid #c5e8e0;">
+      <strong>Kukovi i ramena</strong><p>Uklapa se u svakodnevnu rutinu njege za aktivne osobe.</p>
+    </div>
+    <div class="card-simple anim">
+      <img src="img/sinovite.webp" alt="Šake i prsti" style="max-width:100px;border-radius:50%;margin:0 auto 12px;border:3px solid #c5e8e0;">
+      <strong>Šake i prsti</strong><p>Lagana tekstura, praktična za nanošenje na manja područja tijela.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ INGREDIENTES CAROUSEL ══════════════════════ -->
+<section class="ingredients-section anim">
+  <h2>Prirodni sastav koji radi u vašu korist</h2>
+  <div class="section-divider"></div>
+  <p class="lead">Pet biljnih aktivnih sastojaka u formuli gela, odabranih za njihovu tradicionalnu upotrebu u njezi kože i mišića.</p>
+
+  <div class="ingredients-layout">
+    <div class="carousel-wrap">
+      <span class="carousel-badge">Prirodno</span>
+      <div class="carousel-img-wrap">
+        <img id="carousel-img" src="img/Symphytum_officinale.webp" alt="Ingredient">
+      </div>
+      <div class="carousel-name" id="carousel-name">Gavez</div>
+      <div class="carousel-latin" id="carousel-latin">Symphytum officinale</div>
+      <div class="carousel-desc" id="carousel-desc">Tradicionalno korišten u njezi kože, poznat po umirujućem djelovanju kada se nanosi lokalno.</div>
+      <div class="carousel-nav">
+        <button class="carousel-arrow" id="carousel-prev" aria-label="Prethodni">&#8249;</button>
+        <div class="carousel-dots" id="carousel-dots"></div>
+        <button class="carousel-arrow" id="carousel-next" aria-label="Sljedeći">&#8250;</button>
+      </div>
+    </div>
+
+    <div class="precautions-panel anim">
+      <h3>Mjere opreza i upute</h3>
+      <p class="prec-sub">Kako biste osigurali najbolje iskustvo i sigurnost pri korištenju <span class="produto-nome">Nautubone</span>, slijedite ove preporuke:</p>
+      <div class="prec-item">
+        <span class="prec-icon">⊗</span>
+        <span>Izbjegavajte nanošenje na nadraženu, oštećenu kožu ili u blizini očiju.</span>
+      </div>
+      <div class="prec-item">
+        <span class="prec-icon">⚠</span>
+        <span>U slučaju osjetljivosti ili neželjene reakcije, odmah prekinite upotrebu.</span>
+      </div>
+      <div class="prec-item">
+        <span class="prec-icon">👤</span>
+        <span>Držite proizvod izvan dohvata djece.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FORMULÁRIO 2 — após ingredientes ══════════ -->
+<div class="form-container anim" id="formulario-oferta-2">
+  <div class="form-two-columns">
+    <div class="left-column" style="text-align:center;">
+      <div class="form-badge" id="form-badge-2"></div>
+      <h2 class="form-title" id="form-title-2"></h2>
+      <p class="form-subtitle" id="form-subtitle-2"></p>
+      <img class="product-img-front" src="" alt="" style="max-width:180px;margin:0 auto;border-radius:12px;">
+    </div>
+    <div class="right-column">
+      <div class="form-price-box">
+        <span class="old" id="form2-price-old"></span>
+        <span class="new" id="form2-price-new"></span>
+        <span class="disc" id="form2-price-disc"></span>
+      </div>
+      <div class="form-wrapper">
+        <form id="order_form_2" method="post">
+          <div class="form-group">
+            <label class="form-label" for="country_f2">Država</label>
+            <select class="form-input" id="country_f2" name="country" required>
+              <option id="country-f2" value="" selected></option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="name_f2">Vaše ime i prezime:</label>
+            <input class="form-input" id="name_f2" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="phone_f2">Broj telefona:</label>
+            <div class="phone-group">
+              <span class="phone-ddi" id="ddi-f2"></span>
+              <input class="form-input" id="phone_f2" name="phone" type="tel" autocomplete="tel" required>
+            </div>
+            <small class="form-help">Naš operater će nazvati radi potvrde narudžbe.</small>
+          </div>
+          <button type="submit" class="cta-button"><span id="cta-text-2"></span></button>
+        </form>
+        <div class="payment-info"><p id="payment-info-2"></p></div>
+      </div>
+      <div class="form-trust">
+        <div class="form-trust-item">🔒 Sigurna Narudžba</div>
+        <div class="form-trust-item">✅ Provjereno</div>
+        <div class="form-trust-item">⭐ Pouzdano</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ROTINA DE USO -->
+<section class="section anim">
+  <h2>Nautubone kao dio vaše svakodnevne rutine</h2>
+  <div class="section-divider"></div>
+  <div class="timeline">
+    <div class="card anim"><span class="when">Prve primjene</span><p>Osjećaj svježine i opuštenosti odmah nakon nanošenja gela na područje nelagode.</p></div>
+    <div class="card anim"><span class="when">Svakodnevna upotreba</span><p>Mnogi korisnici uklapaju Nautubone u jutarnju ili večernju rutinu, uz 2-3 nanošenja dnevno.</p></div>
+    <div class="card anim"><span class="when">Redovita primjena</span><p>Dio šire rutine njege tijela, praktičan za nošenje i korištenje bilo gdje.</p></div>
+  </div>
+  <p class="lead" style="margin-top:18px;font-size:12px;">Iskustvo primjene može varirati od osobe do osobe. Slijedite preporučenu učestalost primjene navedenu na pakiranju.</p>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section class="section anim">
+  <h2>Što kažu naši korisnici</h2>
+  <div class="section-divider"></div>
+  <p class="lead">Iskustva osoba koje su već uključile Nautubone u svoju svakodnevnu rutinu.</p>
+  <div class="testimonials-grid">
+    <div class="testimonial-card anim">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">Sviđa mi se što se brzo upija i ne ostavlja masne tragove. Postao je dio moje jutarnje rutine.</p>
+      <div class="testimonial-author">
+        <img class="testimonial-avatar" src="img/avatar_marija.webp" alt="Marija">
+        <div><div class="testimonial-name">Marija, 54</div><div class="testimonial-result">Zenica</div></div>
+      </div>
+    </div>
+    <div class="testimonial-card anim">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">Radim cijeli dan stojeći, pa mi je praktično imati nešto što mogu nanijeti brzo, bilo gdje. Miris je ugodan i blag.</p>
+      <div class="testimonial-author">
+        <img class="testimonial-avatar" src="img/avatar_ivan.webp" alt="Ivan">
+        <div><div class="testimonial-name">Ivan, 47</div><div class="testimonial-result">Sarajevo</div></div>
+      </div>
+    </div>
+    <div class="testimonial-card anim">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">Bila sam skeptična u vezi gelova, ali tekstura je lagana i osjećaj hlađenja je stvarno prijatan.</p>
+      <div class="testimonial-author">
+        <img class="testimonial-avatar" src="img/avatar_ana.webp" alt="Ana">
+        <div><div class="testimonial-name">Ana, 61</div><div class="testimonial-result">Banja Luka</div></div>
+      </div>
+    </div>
+    <div class="testimonial-card anim">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">Postao je dio moje večernje rutine nakon posla za računalom. Praktičan i jednostavan za korištenje.</p>
+      <div class="testimonial-author">
+        <img class="testimonial-avatar" src="img/avatar_petar.webp" alt="Petar">
+        <div><div class="testimonial-name">Petar, 39</div><div class="testimonial-result">Tuzla</div></div>
+      </div>
+    </div>
+    <div class="testimonial-card anim">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">Ne ostavlja masne tragove i miris je jako blag, što mi je bilo važno jer radim s ljudima.</p>
+      <div class="testimonial-author">
+        <img class="testimonial-avatar" src="img/avatar_sanja.webp" alt="Sanja">
+        <div><div class="testimonial-name">Sanja, 58</div><div class="testimonial-result">Mostar</div></div>
+      </div>
+    </div>
+    <div class="testimonial-card anim">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">Dostava je bila brza i plaćanje pri preuzimanju mi je dalo sigurnost da naručim. Proizvod je ispunio očekivanja.</p>
+      <div class="testimonial-author">
+        <img class="testimonial-avatar" src="img/avatar_tomislav.webp" alt="Tomislav">
+        <div><div class="testimonial-name">Tomislav, 63</div><div class="testimonial-result">Zenica</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST ROW -->
+<section class="section" style="padding-top:0;">
+  <div class="trust-row">
+    <div class="trust-card"><span class="trust-icon">✓</span> Plaćanje pri dostavi</div>
+    <div class="trust-card"><span class="trust-icon">🌿</span> 100% biljni sastav</div>
+    <div class="trust-card"><span class="trust-icon">🔒</span> Sigurna narudžba</div>
+  </div>
+</section>
+
+<!-- ══ KAKO NARUČITI ═══════════════════════════ -->
+<section class="order-section anim">
+  <div class="order-header">
+    <span class="order-pill">Plaćanje pouzećem</span>
+    <h2>Kako naručiti svoj Nautubone</h2>
+  </div>
+  <p class="order-sub">Jednostavno, brzo i sigurno. Slijedite korake u nastavku i iskoristite ponudu — od <span id="order-price-old"></span> za <span id="order-price-new"></span>.</p>
+
+  <div class="order-trust-grid">
+    <div class="order-trust-item"><span>✅</span> Jednostavna narudžba</div>
+    <div class="order-trust-item"><span>📞</span> Potvrda putem telefona</div>
+    <div class="order-trust-item"><span>🚚</span> Dostava na kućnu adresu</div>
+    <div class="order-trust-item"><span>💰</span> Plaćanje pri preuzimanju</div>
+  </div>
+
+  <div class="order-steps">
+    <div class="order-step anim">
+      <img class="order-step-img" src="img/order_step1.webp" alt="Ispunite obrazac">
+      <div class="order-step-body">
+        <span class="order-step-label">Korak 1</span>
+        <h3>Ispravno ispunite obrazac</h3>
+        <p>Unesite puno ime i telefon. Važno je da je broj točan kako bismo nastavili s narudžbom i potvrdili podatke.</p>
+        <div class="order-tip">💡 Savjet: držite mobitel pri ruci u sljedećim satima.</div>
+      </div>
+    </div>
+    <div class="order-step anim">
+      <img class="order-step-img" src="img/order_step2.webp" alt="Poziv operatera">
+      <div class="order-step-body">
+        <span class="order-step-label">Korak 2</span>
+        <h3>Pričekajte poziv operatera</h3>
+        <p>Naš operater će vas kontaktirati kako bi potvrdio narudžbu i pomogao po potrebi.</p>
+        <div class="order-tip">⚠ Napomena: Ako se ne možete javiti, pozvat ćemo vas u drugo vrijeme.</div>
+      </div>
+    </div>
+    <div class="order-step anim">
+      <img class="order-step-img" src="img/order_step3.webp" alt="Dostava i plaćanje">
+      <div class="order-step-body">
+        <span class="order-step-label">Korak 3</span>
+        <h3>Primite kod kuće i platite pouzećem</h3>
+        <p>Nakon potvrde, pričekajte dolazak vašeg Nautubonea na navedenu adresu i platite prilikom preuzimanja.</p>
+        <div class="order-tip">✅ Prednost: Jednostavno, praktično i sigurno.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DETALHES DO PRODUTO -->
+<section class="section anim">
+  <h2>Detalji proizvoda</h2>
+  <div class="section-divider"></div>
+  <div class="grid-cards" style="grid-template-columns:1fr 1fr;align-items:center;">
+    <div class="card-simple"><img src="img/nautubone_front.webp" alt="Nautubone gel" style="max-width:220px;margin:0 auto;"></div>
+    <div class="card-simple"><img src="img/nautubone_back.webp" alt="Nautubone - sastav i upute" style="max-width:220px;margin:0 auto;"></div>
+  </div>
+  <p class="lead" style="margin-top:12px;font-size:13px;">Količina po pakovanju: 100 ml. Sastav na bazi prirodnih biljnih ekstrakata, vidljiv na pakiranju.</p>
+</section>
+
+<!-- ══ FORMULÁRIO 3 — antes do FAQ ═══════════════ -->
+<div class="form-container anim" id="formulario-oferta-3">
+  <div class="form-two-columns">
+    <div class="left-column" style="text-align:center;">
+      <div class="form-badge" id="form-badge-3"></div>
+      <h2 class="form-title" id="form-title-3"></h2>
+      <p class="form-subtitle" id="form-subtitle-3"></p>
+      <img class="product-img-front" src="" alt="" style="max-width:180px;margin:0 auto;border-radius:12px;">
+    </div>
+    <div class="right-column">
+      <div class="form-price-box">
+        <span class="old" id="form3-price-old"></span>
+        <span class="new" id="form3-price-new"></span>
+        <span class="disc" id="form3-price-disc"></span>
+      </div>
+      <div class="form-wrapper">
+        <form id="order_form_3" method="post">
+          <div class="form-group">
+            <label class="form-label" for="country_f3">Država</label>
+            <select class="form-input" id="country_f3" name="country" required>
+              <option id="country-f3" value="" selected></option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="name_f3">Vaše ime i prezime:</label>
+            <input class="form-input" id="name_f3" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="phone_f3">Broj telefona:</label>
+            <div class="phone-group">
+              <span class="phone-ddi" id="ddi-f3"></span>
+              <input class="form-input" id="phone_f3" name="phone" type="tel" autocomplete="tel" required>
+            </div>
+            <small class="form-help">Naš operater će nazvati radi potvrde narudžbe.</small>
+          </div>
+          <button type="submit" class="cta-button"><span id="cta-text-3"></span></button>
+        </form>
+        <div class="payment-info"><p id="payment-info-3"></p></div>
+      </div>
+      <div class="form-trust">
+        <div class="form-trust-item">🔒 Sigurna Narudžba</div>
+        <div class="form-trust-item">✅ Provjereno</div>
+        <div class="form-trust-item">⭐ Pouzdano</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<section class="section anim">
+  <h2>Često postavljana pitanja</h2>
+  <div class="section-divider"></div>
+
+  <div class="faq-item anim">
+    <button class="faq-question" aria-expanded="false">
+      Kakav je osjećaj nakon nanošenja?
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-answer">Odmah nakon nanošenja i masaže, koža ima osjećaj svježine. Iskustvo primjene može varirati od osobe do osobe.</div>
+  </div>
+
+  <div class="faq-item anim">
+    <button class="faq-question" aria-expanded="false">
+      Za koja područja tijela je pogodan?
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-answer">Gel je multifunkcionalan - nanosi se na koljena, ramena, leđa, vrat, šake ili gležnjeve, ovisno o vašoj potrebi.</div>
+  </div>
+
+  <div class="faq-item anim">
+    <button class="faq-question" aria-expanded="false">
+      Kako se koristi? Je li komplicirano?
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-answer">Jednostavno je: nanesite tanki sloj na željeno područje 2 do 3 puta dnevno, nježnim pokretima do potpune apsorpcije. Ne ostavlja masne tragove i ne zahtijeva zavoje.</div>
+  </div>
+
+  <div class="faq-item anim">
+    <button class="faq-question" aria-expanded="false">
+      Ima li nuspojava? Što ako imam osjetljivu kožu?
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-answer">Formula je bazirana na sastojcima poznatim po dobroj podnošljivosti. Ako je vaša koža vrlo osjetljiva, preporučujemo test na malom području prije redovne primjene. U slučaju iritacije, prekinite uporabu.</div>
+  </div>
+
+  <div class="faq-item anim">
+    <button class="faq-question" aria-expanded="false">
+      Je li plaćanje sigurno?
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-answer">Plaćate isključivo pri dostavi, izravno dostavljaču. Ne dijelite podatke kartice online niti unaprijed.</div>
+  </div>
+
+  <div class="faq-item anim">
+    <button class="faq-question" aria-expanded="false">
+      Koliko traje dostava?
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-answer">Naš operater potvrđuje procijenjeni rok dostave telefonskim putem nakon potvrde narudžbe, ovisno o regiji.</div>
+  </div>
+
+  <div class="faq-item anim">
+    <button class="faq-question" aria-expanded="false">
+      Što ako se ne javim na poziv operatera?
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-answer">Nema problema, pokušat ćemo ponovno kontaktirati u drugom terminu kako bismo dovršili vašu narudžbu.</div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<div class="form-container anim">
+  <div class="form-two-columns">
+    <div class="left-column" style="text-align:center;">
+      <div class="form-badge" id="form-badge-cta-final"></div>
+      <h2 class="form-title" id="form-title-cta-final"></h2>
+    </div>
+    <div class="right-column">
+      <div class="form-wrapper" style="display:flex;flex-direction:column;gap:12px;padding:28px;">
+        <a href="#formulario-oferta" class="cta-button" style="display:block;text-align:center;text-decoration:none;">
+          🛒 Naručite odmah
+        </a>
+        <div class="form-trust" style="background:none;border:none;padding:0;">
+          <div class="form-trust-item">🔒 Sigurna kupnja</div>
+          <div class="form-trust-item">🚚 Plaćanje pouzećem</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="legal">
+  <p>Ovaj sadržaj je informativni oglas u komercijalne svrhe. Rezultati se mogu razlikovati od osobe do osobe. Informacije su edukativnog karaktera i ne zamjenjuju medicinski savjet. U slučaju trajnih simptoma, obratite se zdravstvenom stručnjaku.</p>
+  <p style="margin-top:8px;">© <span id="ano-atual"></span> <span class="produto-nome">Nautubone</span> — Sva prava pridržana.</p>
+</footer>
+
+<script src="js/config.js"></script>
+<script src="js/main.js"></script>
+<script src="js/tracking.js"></script>
+<script>
+  /* ── FAQ Accordion ──────────────────────── */
+  document.querySelectorAll('.faq-question').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(el){
+        el.classList.remove('open');
+        el.querySelector('.faq-question').setAttribute('aria-expanded','false');
+      });
+      if(!isOpen){ item.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
+    });
+  });
+
+  /* ── Scroll suave ───────────────────────── */
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      const t = document.querySelector(a.getAttribute('href'));
+      if(t){ e.preventDefault(); t.scrollIntoView({behavior:'smooth',block:'start'}); }
+    });
+  });
+
+  /* ── Ingredients Carousel ───────────────── */
+  const ingredients = [
+    {
+      name: "Gavez", latin: "Symphytum officinale",
+      img: "img/Symphytum_officinale.webp",
+      desc: "Tradicionalno korišten u njezi kože, poznat po umirujućem djelovanju kada se nanosi lokalno."
+    },
+    {
+      name: "Ružino ulje", latin: "Pelargonium roseum",
+      img: "img/Pelargonium_roseum.webp",
+      desc: "Poznato po ugodnom mirisu koji pridonosi osjećaju opuštenosti tijekom primjene."
+    },
+    {
+      name: "Rimska kamilica", latin: "Anthemis nobilis",
+      img: "img/Anthemis_nobilis.webp",
+      desc: "Prirodni sastojak poznat po umirujućem mirisu i ugodnom osjećaju na koži."
+    },
+    {
+      name: "Geranij", latin: "Pelargonium graveolens",
+      img: "img/Pelargonium_graveolens.webp",
+      desc: "Blag, uravnotežujući miris koji doprinosi osjećaju svježine i lakoće na koži."
+    },
+    {
+      name: "Kadulja", latin: "Salvia sclarea",
+      img: "img/Salvia_sclarea.webp",
+      desc: "Poznata po svom umirujućem mirisu, često korištena u njezi kože i mišića."
+    }
+  ];
+
+  let currentSlide = 0;
+  const imgEl   = document.getElementById("carousel-img");
+  const nameEl  = document.getElementById("carousel-name");
+  const latinEl = document.getElementById("carousel-latin");
+  const descEl  = document.getElementById("carousel-desc");
+  const dotsEl  = document.getElementById("carousel-dots");
+
+  ingredients.forEach(function(_, i){
+    const d = document.createElement("div");
+    d.className = "carousel-dot" + (i===0?" active":"");
+    d.addEventListener("click", function(){ goTo(i); });
+    dotsEl.appendChild(d);
+  });
+
+  function goTo(i){
+    currentSlide = (i + ingredients.length) % ingredients.length;
+    const ing = ingredients[currentSlide];
+    imgEl.style.opacity = "0";
+    nameEl.style.opacity = "0";
+    descEl.style.opacity = "0";
+    setTimeout(function(){
+      imgEl.src = ing.img; imgEl.alt = ing.name;
+      nameEl.textContent = ing.name;
+      latinEl.textContent = ing.latin;
+      descEl.textContent = ing.desc;
+      imgEl.style.opacity = "1";
+      nameEl.style.opacity = "1";
+      descEl.style.opacity = "1";
+    }, 180);
+    dotsEl.querySelectorAll(".carousel-dot").forEach(function(d,idx){
+      d.classList.toggle("active", idx===currentSlide);
+    });
+  }
+
+  [imgEl,nameEl,descEl].forEach(function(el){
+    el.style.transition = "opacity .18s ease";
+  });
+
+  document.getElementById("carousel-prev").addEventListener("click", function(){ goTo(currentSlide-1); });
+  document.getElementById("carousel-next").addEventListener("click", function(){ goTo(currentSlide+1); });
+
+  setInterval(function(){ goTo(currentSlide+1); }, 5000);
+
+  /* ── IntersectionObserver animations ─── */
+  if(window.matchMedia('(prefers-reduced-motion: no-preference)').matches){
+    const obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }
+      });
+    }, {threshold:0.07, rootMargin:'0px 0px -40px 0px'});
+    document.querySelectorAll('.anim').forEach(function(el){ obs.observe(el); });
+  }
+</script>
+</body>
+</html>

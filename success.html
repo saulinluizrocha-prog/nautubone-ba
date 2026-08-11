@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+<meta charset="UTF-8">
+<title>Narudžba primljena</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<section class="section" style="text-align:center; padding-top:60px;">
+  <h2 style="color:var(--cor-principal, #15B093);">Narudžba je uspješno primljena!</h2>
+  <p class="lead">
+    Naš tim će vas uskoro nazvati da potvrdi podatke i adresu dostave.
+    Držite telefon pri ruci.
+  </p>
+  <div class="card-simple" style="max-width:420px;margin:24px auto;">
+    <strong>Šta se sada dešava</strong>
+    <p>1. Potvrda telefonom<br>2. Priprema narudžbe<br>3. Dostava uz plaćanje pouzećem</p>
+  </div>
+</section>
+
+<footer class="legal">
+  <p>© <span id="ano-atual"></span> Nautubone — Sva prava pridržana.</p>
+</footer>
+
+<script>
+  document.getElementById("ano-atual").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
