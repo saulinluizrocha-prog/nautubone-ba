@@ -2,30 +2,429 @@
 <html lang="bs">
 <head>
 <meta charset="UTF-8">
-<title>Narudžba primljena</title>
+<title>Narudžba potvrđena – Nautubone</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="css/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --verde: #15B093;
+    --verde-dark: #0f8a72;
+    --verde-light: #e6f7f3;
+    --laranja: #F5A623;
+    --laranja-dark: #c8841a;
+    --vermelho: #e53935;
+    --texto: #1a1a1a;
+    --texto-claro: #4a4a4a;
+    --radius-md: 16px;
+    --radius-lg: 22px;
+    --sombra-md: 0 8px 28px rgba(21,176,147,.14);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: #f0fbf8;
+    color: var(--texto);
+    line-height: 1.6;
+  }
+
+  /* ── HEADER ── */
+  .success-header {
+    background: var(--verde);
+    color: #fff;
+    text-align: center;
+    padding: 16px 20px;
+    box-shadow: 0 2px 12px rgba(21,176,147,.35);
+  }
+  .success-header .brand { font-size: 26px; font-weight: 900; letter-spacing: -.5px; }
+  .success-header .tagline { font-size: 13px; opacity: .85; margin-top: 2px; }
+
+  /* ── HERO CONFIRMA ── */
+  .confirm-hero {
+    background: linear-gradient(135deg, var(--verde) 0%, #0fa882 100%);
+    color: #fff;
+    text-align: center;
+    padding: 40px 20px 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .confirm-hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(circle at 70% 30%, rgba(255,255,255,.08) 0%, transparent 60%);
+  }
+  .checkmark-circle {
+    width: 80px; height: 80px;
+    background: rgba(255,255,255,.2);
+    border: 3px solid rgba(255,255,255,.5);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 18px;
+    font-size: 38px;
+    animation: pop .5s cubic-bezier(.175,.885,.32,1.275);
+  }
+  @keyframes pop {
+    0% { transform: scale(0); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  .confirm-hero h1 { font-size: 28px; font-weight: 900; line-height: 1.2; margin-bottom: 10px; }
+  .confirm-hero p { font-size: 16px; opacity: .9; max-width: 480px; margin: 0 auto; }
+
+  /* ── MAIN CONTENT ── */
+  .success-content {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 24px 16px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  /* ── URGENCY ALERTS ── */
+  .urgency-card {
+    border-radius: var(--radius-md);
+    padding: 18px 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    animation: slideIn .5s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  @keyframes slideIn {
+    from { transform: translateX(-20px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+  .urgency-card.stock {
+    background: #fff3e0;
+    border: 2px solid #ff9800;
+    animation-delay: .3s;
+  }
+  .urgency-card.phone {
+    background: #e8f5e9;
+    border: 2px solid #43a047;
+    animation-delay: .8s;
+    display: none; /* shown after 60s */
+  }
+  .urgency-card.final {
+    background: #fce4ec;
+    border: 2px solid var(--vermelho);
+    animation-delay: 1.3s;
+    display: none; /* shown after 120s */
+  }
+  .urgency-icon {
+    font-size: 28px;
+    flex-shrink: 0;
+    line-height: 1;
+  }
+  .urgency-label {
+    font-size: 11px; font-weight: 900; text-transform: uppercase;
+    letter-spacing: .8px; margin-bottom: 4px;
+  }
+  .urgency-card.stock .urgency-label { color: #e65100; }
+  .urgency-card.phone .urgency-label { color: #2e7d32; }
+  .urgency-card.final .urgency-label { color: var(--vermelho); }
+  .urgency-title { font-size: 15px; font-weight: 800; color: var(--texto); margin-bottom: 3px; }
+  .urgency-desc { font-size: 13px; color: var(--texto-claro); line-height: 1.55; }
+
+  /* Pulse dot for live indicator */
+  .pulse-dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: #e53935;
+    display: inline-block;
+    margin-right: 6px;
+    animation: pulseDot 1.2s ease-in-out infinite;
+  }
+  @keyframes pulseDot {
+    0%,100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.5); opacity: .5; }
+  }
+
+  /* ── ORDER SUMMARY BOX ── */
+  .order-box {
+    background: #fff;
+    border: 2px solid var(--verde);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--sombra-md);
+  }
+  .order-box-header {
+    background: linear-gradient(90deg, var(--verde) 0%, #0fa882 100%);
+    color: #fff;
+    padding: 14px 20px;
+    font-weight: 900;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .order-box-body {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .order-product-img {
+    width: 110px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    object-fit: contain;
+  }
+  .order-details { flex: 1; }
+  .order-product-name { font-size: 18px; font-weight: 900; color: var(--verde); margin-bottom: 8px; }
+  .order-step-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+  .order-step-list li {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 14px; font-weight: 600; color: var(--texto);
+  }
+  .step-num {
+    width: 26px; height: 26px; border-radius: 50%;
+    background: var(--verde); color: #fff;
+    font-weight: 900; font-size: 12px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+
+  /* ── COUNTDOWN ── */
+  .countdown-box {
+    background: #fff;
+    border: 2px dashed var(--laranja);
+    border-radius: var(--radius-md);
+    padding: 18px 20px;
+    text-align: center;
+  }
+  .countdown-label { font-size: 13px; font-weight: 700; color: #7a4f00; margin-bottom: 8px; }
+  .countdown-timer {
+    font-size: 38px; font-weight: 900;
+    color: var(--laranja-dark);
+    letter-spacing: 2px;
+    font-variant-numeric: tabular-nums;
+  }
+  .countdown-sub { font-size: 12px; color: #999; margin-top: 4px; }
+
+  /* ── EU CERTIFICATION ── */
+  .eu-cert {
+    background: #fff;
+    border: 1.5px solid #d0e8ff;
+    border-radius: var(--radius-md);
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .eu-flag {
+    width: 52px; height: 52px; flex-shrink: 0;
+    border-radius: 50%;
+    background: #003399;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 28px;
+  }
+  .eu-text strong { font-size: 14px; font-weight: 800; color: var(--texto); display: block; margin-bottom: 3px; }
+  .eu-text span { font-size: 12px; color: var(--texto-claro); }
+
+  /* ── SECURITY SEALS ── */
+  .seals-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  .seal-item {
+    background: #fff;
+    border: 1.5px solid #e2ede9;
+    border-radius: var(--radius-md);
+    padding: 14px 10px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,.06);
+  }
+  .seal-item .seal-icon { font-size: 28px; margin-bottom: 6px; display: block; }
+  .seal-item .seal-label { font-size: 11px; font-weight: 700; color: var(--verde); }
+
+  /* ── TESTIMONIAL MINI ── */
+  .mini-testimonial {
+    background: #fff;
+    border-radius: var(--radius-md);
+    padding: 16px 18px;
+    border-left: 4px solid var(--verde);
+    box-shadow: 0 2px 10px rgba(0,0,0,.06);
+  }
+  .mini-testimonial .stars { color: var(--laranja); font-size: 15px; margin-bottom: 6px; }
+  .mini-testimonial p { font-size: 14px; color: var(--texto-claro); font-style: italic; margin-bottom: 8px; }
+  .mini-testimonial .author { font-size: 13px; font-weight: 700; color: var(--texto); }
+
+  /* ── FOOTER ── */
+  .success-footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 11px;
+    color: #888;
+    border-top: 1px solid #e0ede9;
+    background: #fff;
+  }
+
+  @media (max-width: 480px) {
+    .confirm-hero h1 { font-size: 22px; }
+    .order-box-body { flex-direction: column; text-align: center; }
+    .order-product-img { width: 130px; margin: 0 auto; }
+    .seals-grid { grid-template-columns: repeat(3, 1fr); }
+    .eu-cert { flex-direction: column; text-align: center; }
+    .countdown-timer { font-size: 32px; }
+  }
+</style>
 </head>
 <body>
 
-<section class="section" style="text-align:center; padding-top:60px;">
-  <h2 style="color:var(--cor-principal, #15B093);">Narudžba je uspješno primljena!</h2>
-  <p class="lead">
-    Naš tim će vas uskoro nazvati da potvrdi podatke i adresu dostave.
-    Držite telefon pri ruci.
-  </p>
-  <div class="card-simple" style="max-width:420px;margin:24px auto;">
-    <strong>Šta se sada dešava</strong>
-    <p>1. Potvrda telefonom<br>2. Priprema narudžbe<br>3. Dostava uz plaćanje pouzećem</p>
-  </div>
-</section>
+<!-- HEADER -->
+<div class="success-header">
+  <div class="brand">Nautubone</div>
+  <div class="tagline">Gel sa prirodnim biljnim ekstraktima</div>
+</div>
 
-<footer class="legal">
+<!-- HERO CONFIRMAÇÃO -->
+<div class="confirm-hero">
+  <div class="checkmark-circle">✅</div>
+  <h1>Vaša narudžba je primljena!</h1>
+  <p>Hvala vam! Naš tim će vas uskoro kontaktirati radi potvrde narudžbe i dogovora o dostavi.</p>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="success-content">
+
+  <!-- GATILHO 1: ESTOQUE BAIXO (imediato) -->
+  <div class="urgency-card stock" id="alert-stock">
+    <div class="urgency-icon">⚠️</div>
+    <div>
+      <div class="urgency-label">⚠ PAŽNJA — Zalihe</div>
+      <div class="urgency-title">Nivoi zaliha su trenutno niski!</div>
+      <div class="urgency-desc">Zbog velike potražnje, naše zalihe Nautubone gela su ograničene. Vaša narudžba je rezervirana — nemojte otkazivati jer ne možemo garantirati ponovnu dostupnost.</div>
+    </div>
+  </div>
+
+  <!-- GATILHO 2: LIGAÇÃO (aparece após 60s) -->
+  <div class="urgency-card phone" id="alert-phone">
+    <div class="urgency-icon">📱</div>
+    <div>
+      <div class="urgency-label"><span class="pulse-dot"></span> OBAVIJEST — Kontakt</div>
+      <div class="urgency-title">Budite pažljivi na vaš mobilni telefon!</div>
+      <div class="urgency-desc">Za nekoliko minuta naši stručnjaci će vas kontaktirati kako bi kreirali vaš personalizirani plan tretmana. <strong>Budite dostupni na broju koji ste naveli.</strong></div>
+    </div>
+  </div>
+
+  <!-- GATILHO 3: URGENTE (aparece após 120s) -->
+  <div class="urgency-card final" id="alert-final">
+    <div class="urgency-icon">🚨</div>
+    <div>
+      <div class="urgency-label">🚨 HITNO — Ne propustite ovu ponudu!</div>
+      <div class="urgency-title">U roku od 30 minuta stupamo u kontakt s vama!</div>
+      <div class="urgency-desc"><strong>NE PROPUSTITE OVU PONUDU NA BILO KOJI NAČIN!</strong> Osigurajte da ste dostupni — naš operater će vas kontaktirati sa svim detaljima o dostavi i vašem specijalnom planu tretmana.</div>
+    </div>
+  </div>
+
+  <!-- COUNTDOWN -->
+  <div class="countdown-box">
+    <div class="countdown-label">⏱ Naš tim kontaktira vas za:</div>
+    <div class="countdown-timer" id="countdown">30:00</div>
+    <div class="countdown-sub">Zadržite telefon pri ruci</div>
+  </div>
+
+  <!-- ORDER SUMMARY -->
+  <div class="order-box">
+    <div class="order-box-header">
+      📦 Detalji vaše narudžbe
+    </div>
+    <div class="order-box-body">
+      <img class="order-product-img" src="img/nautubone_2tubes.jpg" alt="Nautubone gel">
+      <div class="order-details">
+        <div class="order-product-name">Nautubone Gel</div>
+        <ul class="order-step-list">
+          <li><div class="step-num">1</div> Potvrda telefonskim pozivom</li>
+          <li><div class="step-num">2</div> Priprema i pakiranje narudžbe</li>
+          <li><div class="step-num">3</div> Dostava na vašu adresu</li>
+          <li><div class="step-num">💰</div> Plaćanje pouzećem pri preuzimanju</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- EU CERTIFICATION -->
+  <div class="eu-cert">
+    <div class="eu-flag">🇪🇺</div>
+    <div class="eu-text">
+      <strong>Sigurnost i efikasnost proizvoda klinički su potvrđeni</strong>
+      <span>Product safety and effectiveness are clinically confirmed · EU Certified Formula</span>
+    </div>
+  </div>
+
+  <!-- SECURITY SEALS -->
+  <div class="seals-grid">
+    <div class="seal-item">
+      <span class="seal-icon">🔒</span>
+      <div class="seal-label">Sigurna narudžba</div>
+    </div>
+    <div class="seal-item">
+      <span class="seal-icon">🌿</span>
+      <div class="seal-label">100% biljni sastav</div>
+    </div>
+    <div class="seal-item">
+      <span class="seal-icon">✅</span>
+      <div class="seal-label">Klinički testirano</div>
+    </div>
+    <div class="seal-item">
+      <span class="seal-icon">🚚</span>
+      <div class="seal-label">Brza dostava</div>
+    </div>
+    <div class="seal-item">
+      <span class="seal-icon">💰</span>
+      <div class="seal-label">Plaćanje pouzećem</div>
+    </div>
+    <div class="seal-item">
+      <span class="seal-icon">⭐</span>
+      <div class="seal-label">10.000+ kupaca</div>
+    </div>
+  </div>
+
+  <!-- MINI TESTIMONIAL -->
+  <div class="mini-testimonial">
+    <div class="stars">★★★★★</div>
+    <p>"Naručila sam i operater me nazvao za svega 20 minuta. Dostava je bila brza i gel je odličan — koristim ga svako jutro!"</p>
+    <div class="author">— Marija S., Sarajevo</div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="success-footer">
   <p>© <span id="ano-atual"></span> Nautubone — Sva prava pridržana.</p>
-</footer>
+  <p style="margin-top:6px;">Ovaj sadržaj je informativnog karaktera. Rezultati se mogu razlikovati od osobe do osobe.</p>
+</div>
 
 <script>
   document.getElementById("ano-atual").textContent = new Date().getFullYear();
+
+  // Countdown timer (30 minutos)
+  let totalSeconds = 30 * 60;
+  const timerEl = document.getElementById("countdown");
+  const tick = setInterval(function() {
+    totalSeconds--;
+    if (totalSeconds <= 0) { clearInterval(tick); timerEl.textContent = "00:00"; return; }
+    const m = Math.floor(totalSeconds / 60).toString().padStart(2, "0");
+    const s = (totalSeconds % 60).toString().padStart(2, "0");
+    timerEl.textContent = m + ":" + s;
+  }, 1000);
+
+  // Gatilho 2: aparece após 60 segundos
+  setTimeout(function() {
+    const el = document.getElementById("alert-phone");
+    el.style.display = "flex";
+    el.style.animation = "slideIn .5s ease";
+  }, 60000);
+
+  // Gatilho 3: aparece após 120 segundos
+  setTimeout(function() {
+    const el = document.getElementById("alert-final");
+    el.style.display = "flex";
+    el.style.animation = "slideIn .5s ease";
+  }, 120000);
 </script>
 </body>
 </html>
